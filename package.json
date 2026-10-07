@@ -1,0 +1,20 @@
+{
+  "name": "project-side-scroller",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Web-first virtual exhibition prototype: a gallery experienced as a side-scrolling world.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0"
+  }
+}

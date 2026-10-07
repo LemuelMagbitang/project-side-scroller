@@ -1,0 +1,52 @@
+{
+  "gallery": {
+    "id": "example-exhibition",
+    "title": "EXAMPLE EXHIBITION",
+    "curator": "Artist / Studio",
+    "description": "An example of the future CMS-friendly gallery data model.",
+    "atmosphere": "Theme name · material · lighting",
+    "floorTint": 1118481,
+    "wallTint": 3421238,
+    "exhibits": [
+      {
+        "id": "exhibit-01",
+        "artworkId": "art-01",
+        "x": 920,
+        "y": 330,
+        "frame": "stone",
+        "spotlight": true,
+        "layout": {
+          "maxWidth": 280,
+          "maxHeight": 255,
+          "manualScale": 1,
+          "offsetX": 0,
+          "offsetY": 0
+        }
+      }
+    ],
+    "layers": [
+      {
+        "id": "background",
+        "depth": 0,
+        "parallax": 0.08,
+        "asset": "/assets/gallery/background-architecture-1920x1080.svg"
+      }
+    ]
+  },
+  "artworks": [
+    {
+      "id": "art-01",
+      "title": "Untitled",
+      "artist": "Artist Name",
+      "description": "Optional description.",
+      "imageUrl": "/artworks/art-01.jpg",
+      "sourceWidth": 4000,
+      "sourceHeight": 6000,
+      "variants": {
+        "thumbnail": "/artworks/art-01-480.webp",
+        "standard": "/artworks/art-01-1600.webp",
+        "detail": "/artworks/art-01-3200.avif"
+      }
+    }
+  ]
+}

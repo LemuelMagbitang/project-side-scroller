@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#111218"/>
+  <rect x="42" y="42" width="816" height="816" fill="#0a0b0f" stroke="#8ca9be" stroke-width="14"/>
+  <rect x="78" y="78" width="744" height="744" fill="none" stroke="#dff5ff" stroke-width="2" opacity=".22"/>
+  <text x="90" y="882" fill="#eee6f0" opacity=".24" font-family="monospace" font-size="22">FRAME / SQUARE / 900 × 900</text>
+</svg>

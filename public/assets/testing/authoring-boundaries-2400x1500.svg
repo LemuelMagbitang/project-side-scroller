@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1500" viewBox="0 0 2400 1500">
+  <rect width="2400" height="1500" fill="#090a0e"/>
+  <g fill="none" stroke="#9b82bf" stroke-width="3" opacity=".5">
+    <rect x="100" y="180" width="1280" height="720"/>
+    <rect x="1500" y="140" width="720" height="1280"/>
+  </g>
+  <g fill="#eee6f0" font-family="monospace">
+    <text x="100" y="110" font-size="38" opacity=".72">DESKTOP / 1280 × 720 WORLD VIEW</text>
+    <text x="1500" y="90" font-size="38" opacity=".72">MOBILE / 720 × 1280 PORTRAIT VIEW</text>
+    <text x="100" y="950" font-size="22" opacity=".42">Camera / viewport boundary</text>
+    <text x="1500" y="1470" font-size="22" opacity=".42">Portrait camera / crop boundary</text>
+  </g>
+  <g stroke="#d5b8ff" opacity=".2">
+    <line x1="140" y1="240" x2="1340" y2="240"/>
+    <line x1="140" y1="560" x2="1340" y2="560"/>
+    <line x1="1540" y1="430" x2="2180" y2="430"/>
+    <line x1="1540" y1="930" x2="2180" y2="930"/>
+  </g>
+</svg>

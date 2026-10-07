@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#111218"/>
+  <rect x="40" y="40" width="720" height="920" fill="#0a0b0f" stroke="#8e8893" stroke-width="14"/>
+  <rect x="76" y="76" width="648" height="848" fill="none" stroke="#cfc7d5" stroke-width="2" opacity=".35"/>
+  <text x="88" y="982" fill="#eee6f0" opacity=".24" font-family="monospace" font-size="22">FRAME / PORTRAIT / 800 × 1000</text>
+</svg>

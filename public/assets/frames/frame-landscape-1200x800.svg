@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#111218"/>
+  <rect x="40" y="40" width="1120" height="720" fill="#0a0b0f" stroke="#9b8764" stroke-width="14"/>
+  <rect x="76" y="76" width="1048" height="648" fill="none" stroke="#dfd4c1" stroke-width="2" opacity=".26"/>
+  <text x="88" y="782" fill="#eee6f0" opacity=".24" font-family="monospace" font-size="22">FRAME / LANDSCAPE / 1200 × 800</text>
+</svg>

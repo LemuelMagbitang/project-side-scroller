@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512">
+  <rect width="1024" height="512" fill="#34323a"/>
+  <rect width="1024" height="20" fill="#0c0d11"/>
+  <rect y="492" width="1024" height="20" fill="#171821"/>
+  <g stroke="#47434e" stroke-width="3" opacity=".45">
+    <path d="M0 0V512 M256 0V512 M512 0V512 M768 0V512 M1024 0V512"/>
+  </g>
+  <g stroke="#26242c" stroke-width="2" opacity=".6">
+    <path d="M0 128H1024 M0 256H1024 M0 384H1024"/>
+  </g>
+  <text x="28" y="54" fill="#e8dfeb" opacity=".14" font-family="monospace" font-size="20">WALL TILE / 1024 × 512</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512">
+  <rect width="1024" height="512" fill="#111218"/>
+  <g stroke="#6b6177" stroke-width="2" opacity=".2">
+    <path d="M0 512L160 0 M160 512L320 0 M320 512L480 0 M480 512L640 0 M640 512L800 0 M800 512L960 0 M960 512L1120 0"/>
+    <path d="M0 120H1024 M0 220H1024 M0 320H1024 M0 420H1024"/>
+  </g>
+  <text x="30" y="54" fill="#eee6f0" opacity=".16" font-family="monospace" font-size="20">FLOOR TILE / 1024 × 512</text>
+</svg>

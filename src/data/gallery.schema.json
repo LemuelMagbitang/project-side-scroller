@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Virtual Exhibition Gallery Bundle",
+  "type": "object",
+  "required": ["gallery", "artworks"],
+  "properties": {
+    "gallery": {
+      "type": "object",
+      "required": ["id", "title", "curator", "description", "atmosphere", "floorTint", "wallTint", "exhibits", "layers"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "curator": {"type": "string"},
+        "description": {"type": "string"},
+        "atmosphere": {"type": "string"},
+        "floorTint": {"type": "integer"},
+        "wallTint": {"type": "integer"},
+        "secretArea": {"type": "object"},
+        "exhibits": {"type": "array"},
+        "layers": {"type": "array"}
+      }
+    },
+    "artworks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "artist", "imageUrl"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "artist": {"type": "string"},
+          "description": {"type": "string"},
+          "imageUrl": {"type": "string"},
+          "sourceWidth": {"type": "number", "minimum": 1},
+          "sourceHeight": {"type": "number", "minimum": 1},
+          "variants": {
+            "type": "object",
+            "properties": {
+              "thumbnail": {"type": "string"},
+              "standard": {"type": "string"},
+              "detail": {"type": "string"}
+            }
+          }
+        }
+      }
+    }
+  }
+}
