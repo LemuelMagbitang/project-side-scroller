@@ -23,7 +23,7 @@ export type GallerySceneData = GalleryBundle & {
 export class GalleryScene extends Phaser.Scene {
   private bundle!: GalleryBundle;
   private callbacks!: GallerySceneCallbacks;
-  private input!: InputController;
+  private controls!: InputController;
   private player!: Phaser.GameObjects.Image;
   private prompt!: Phaser.GameObjects.Text;
   private secretPrompt!: Phaser.GameObjects.Text;
@@ -57,7 +57,7 @@ export class GalleryScene extends Phaser.Scene {
   }
 
   create() {
-    this.input = new InputController();
+    this.controls = new InputController();
     this.chunkManager = new WorldChunkManager(WORLD_WIDTH);
 
     this.buildWorld();
@@ -67,7 +67,7 @@ export class GalleryScene extends Phaser.Scene {
 
     this.scale.on('resize', this.setupResponsiveCamera, this);
     this.events.once('destroy', () => {
-      this.input.destroy();
+      this.controls.destroy();
       this.scale.off('resize', this.setupResponsiveCamera, this);
     });
 
@@ -77,7 +77,7 @@ export class GalleryScene extends Phaser.Scene {
   update(_time: number, delta: number) {
     const dt = Math.min(delta / 1000, 0.033);
 
-    if (this.input.takePressed('escape')) {
+    if (this.controls.takePressed('escape')) {
       if (this.inspecting) {
         this.exitInspection();
       } else {
@@ -91,26 +91,31 @@ export class GalleryScene extends Phaser.Scene {
     }
 
     const direction =
-      Number(this.input.isHeld('right')) - Number(this.input.isHeld('left'));
+      Number(this.controls.isHeld('right')) - Number(this.controls.isHeld('left'));
 
     if (direction !== 0) {
-      const speed = this.input.isHeld('sprint') ? 360 : 190;
+      const speed = this.controls.isHeld('sprint') ? 360 : 190;
       this.player.x = Phaser.Math.Clamp(
         this.player.x + direction * speed * dt,
         150,
         WORLD_WIDTH - 150
       );
       this.player.setFlipX(direction < 0);
-      this.player.setScale(direction < 0 ? -1 : 1, 1);
+      this.player.setScale(1, 1);
     }
 
     const nearest = this.findNearestExhibit();
-    this.currentExhibit = nearest?.distance <= 170 ? nearest.exhibit : null;
+
+    if (!nearest || nearest.distance > 170) {
+      this.currentExhibit = null;
+    } else {
+      this.currentExhibit = nearest.exhibit;
+    }
 
     this.prompt.setVisible(Boolean(this.currentExhibit));
     this.secretPrompt.setVisible(this.isNearSecretArea());
 
-    if (this.input.takePressed('interact')) {
+    if (this.controls.takePressed('interact')) {
       if (this.currentExhibit?.artworkId) {
         this.enterInspection(this.currentExhibit);
       } else if (this.isNearSecretArea()) {

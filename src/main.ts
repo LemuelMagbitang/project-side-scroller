@@ -23,13 +23,13 @@ async function enterGallery(galleryId: string) {
   game?.destroy();
   game = new GalleryGame(app.gameHost, bundle, {
     onInspectStart: (artwork) => app.openArtwork(artwork),
-    onInspectEnd: () => app.closeInspector(),
+    onInspectEnd: () => app.hideInspector(),
     onSecret: (label) => app.showToast(`${label} · secret-area prototype`),
     onExit: () => {
-      app.closeInspector();
       game?.destroy();
       game = null;
       currentBundle = null;
+      app.hideInspector();
       app.showMenu();
     }
   });
@@ -42,6 +42,14 @@ app.setOpenGalleryHandler((galleryId) => {
 
 app.setCloseInspectorHandler(() => {
   game?.exitInspection();
+});
+
+app.setExitGalleryHandler(() => {
+  game?.destroy();
+  game = null;
+  currentBundle = null;
+  app.hideInspector();
+  app.showMenu();
 });
 
 const bundles = await repository.list();

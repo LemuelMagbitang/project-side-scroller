@@ -3,6 +3,7 @@ import { sendInput, type InputAction } from '../input/InputController';
 
 type OpenGalleryHandler = (galleryId: string) => void;
 type CloseInspectorHandler = () => void;
+type ExitGalleryHandler = () => void;
 
 export function createAppShell() {
   const root = document.querySelector<HTMLDivElement>('#app');
@@ -80,18 +81,27 @@ export function createAppShell() {
   const gameHost = root.querySelector<HTMLElement>('[data-game-host]')!;
   const cards = root.querySelector<HTMLElement>('[data-gallery-cards]')!;
   const inspector = root.querySelector<HTMLElement>('[data-inspector]')!;
+  const inspectorTitle = root.querySelector<HTMLElement>('[data-inspector-title]')!;
+  const inspectorArtist = root.querySelector<HTMLElement>('[data-inspector-artist]')!;
+  const inspectorDescription = root.querySelector<HTMLElement>('[data-inspector-description]')!;
   const title = root.querySelector<HTMLElement>('[data-gallery-title]')!;
   const toast = root.querySelector<HTMLElement>('[data-toast]')!;
 
   let openGalleryHandler: OpenGalleryHandler = () => {};
   let closeInspectorHandler: CloseInspectorHandler = () => {};
+  let exitGalleryHandler: ExitGalleryHandler = () => {};
   let guideMode = false;
+
+  function hideInspector() {
+    inspector.classList.remove('is-visible');
+    inspector.setAttribute('aria-hidden', 'true');
+  }
 
   function showMenu() {
     menu.classList.add('is-visible');
     gameView.classList.remove('is-visible');
     gameView.setAttribute('aria-hidden', 'true');
-    closeInspector();
+    hideInspector();
   }
 
   function showGallery(bundle: GalleryBundle) {
@@ -102,10 +112,9 @@ export function createAppShell() {
   }
 
   function openArtwork(artwork: Artwork) {
-    root.querySelector<HTMLElement>('[data-inspector-title]')!.textContent = artwork.title;
-    root.querySelector<HTMLElement>('[data-inspector-artist]')!.textContent =
-      artwork.artist;
-    root.querySelector<HTMLElement>('[data-inspector-description]')!.textContent =
+    inspectorTitle.textContent = artwork.title;
+    inspectorArtist.textContent = artwork.artist;
+    inspectorDescription.textContent =
       artwork.description ?? 'No description provided.';
     inspector.classList.add('is-visible');
     inspector.setAttribute('aria-hidden', 'false');
@@ -113,8 +122,6 @@ export function createAppShell() {
 
   function closeInspector() {
     if (!inspector.classList.contains('is-visible')) return;
-    inspector.classList.remove('is-visible');
-    inspector.setAttribute('aria-hidden', 'true');
     closeInspectorHandler();
   }
 
@@ -130,8 +137,7 @@ export function createAppShell() {
   }
 
   root.querySelector('[data-exit]')?.addEventListener('click', () => {
-    closeInspector();
-    showMenu();
+    exitGalleryHandler();
   });
 
   root.querySelectorAll<HTMLElement>('[data-close-inspector]').forEach((el) => {
@@ -210,10 +216,15 @@ export function createAppShell() {
       closeInspectorHandler = handler;
     },
 
+    setExitGalleryHandler(handler: ExitGalleryHandler) {
+      exitGalleryHandler = handler;
+    },
+
     showMenu,
     showGallery,
     openArtwork,
     closeInspector,
+    hideInspector,
     showToast,
 
     getRequestedGalleryId() {

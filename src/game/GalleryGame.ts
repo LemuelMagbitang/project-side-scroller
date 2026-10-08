@@ -42,7 +42,7 @@ export class GalleryGame {
   }
 
   exitInspection() {
-    const scene = this.game.scene.getScene('GalleryScene') as GalleryScene | undefined;
+    const scene = this.game.scene.getScene('GalleryScene') as unknown as GalleryScene | undefined;
     scene?.exitInspection();
   }
 
